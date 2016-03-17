@@ -158,6 +158,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
     ],
 
@@ -208,7 +210,7 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Menu' => Caffeinated\Menus\Facades\Menu::class,
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+
 
     ],
 

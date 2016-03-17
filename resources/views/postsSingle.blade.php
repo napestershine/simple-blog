@@ -8,7 +8,7 @@
             <time pubdate={!! $singlePost[0]->start_post  !!}>{!! $singlePost[0]->start_post  !!}</time>
         </p>
         <div>
-            {!! $singlePost[0]->description !!}
+            {!! stripslashes($singlePost[0]->description) !!}
         </div>
         <div>
             <a class="btn btn-primary" href="{{ URL::previous() }}" alt="back">

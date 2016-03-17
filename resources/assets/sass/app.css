@@ -1,7 +1,6 @@
 @import url(../datepiker/css/bootstrap-datetimepicker.css);
 @import url(../bootstrap/css/bootstrap.min.css);
 @import url(../multiple-select/multiple-select.css);
-@import url(../monthly/monthly.css);
 body {
   position: relative;
   margin: 0;

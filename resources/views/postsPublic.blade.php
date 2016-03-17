@@ -10,7 +10,7 @@
                 <time pubdate={!! $post->start_post  !!}>{!! $post->start_post  !!}</time>
             </p>
             <p>
-                {!! $post->preview !!}
+                {!! stripslashes($post->preview) !!}
             </p>
             <div>
                 <a class="btn btn-primary" href="{{ URL::to("posts/$post->id") }}" alt="More >">

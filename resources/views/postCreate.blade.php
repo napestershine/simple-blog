@@ -33,11 +33,11 @@
     <div class='col-md-10 col-md-offset-1'>
         <div class="form-group">
             {{ Form::label('preview', 'Preview post') }}<br>
-            {{ Form::textarea('preview', null, array('class'=>'form-control', 'required')) }}
+            {{ Form::textarea('preview', null , array('class'=>'form-control', 'required', 'id' => 'preview')) }}
         </div>
         <div class="form-group">
             {{ Form::label('description', 'Description post') }}<br>
-            {{ Form::textarea('description', null, array('class'=>'form-control')) }}
+            {{ Form::textarea('description', null, array('class'=>'form-control', 'id' => 'description')) }}
         </div>
         <p class="center">
             <a class="btn" href="{{ URL::previous() }}" alt="back">
@@ -55,6 +55,19 @@
             locale: 'en'
         });
     });
+</script>
+
+<script src="{{ URL::asset('../vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+
+<script>
+    CKEDITOR.replace( 'description',{
+        language: 'en',
+        filebrowserBrowseUrl: '{!! url('../public/upload') !!}'
+    } );
+    CKEDITOR.replace( 'preview',{
+        language: 'en',
+        filebrowserBrowseUrl: '{!! url('../public/upload') !!}'
+    } );
 </script>
 
 @include('layout.footer')

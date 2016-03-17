@@ -83,7 +83,7 @@ class PostController extends Controller{
                 }else{
                     $date = date_create($startDate);
                     $post = new Post();
-                    $errors .= $post->createPost( Auth::user(),$title, $date, $preview, $description );
+                    $errors .= $post->createPost( Auth::user(),$title, $date, addslashes($preview), addslashes($description) );
                     if ($errors == "") {
                         return Redirect::to('personal');
                     }
@@ -134,14 +134,18 @@ class PostController extends Controller{
                 }else{
                     $date = date_create($startDate);
                     $postObject = new Post();
-                    $errors .= $postObject->updatePost( $id,$title, $date, $preview, $description );
+                    $errors .= $postObject->updatePost( $id,$title, $date, addslashes($preview), addslashes($description) );
                     if ($errors == "") {
                         return Redirect::to('personal');
                     }
                 }
+                $post->preview=$preview;
+                $post->description=$description;
 
                 return View::make('postEdit', array('post' => $post, 'errors' => isset($errors) ? $errors : null));
             }else{
+                $post->preview=stripslashes($post->preview);
+                $post->description=stripslashes($post->description);
                 return View::make('postEdit', array('post' => $post, 'errors' => isset($errors) ? $errors : null));
             }
         }
